@@ -63,4 +63,14 @@ class User extends Authenticatable
             'curso_id'
         )->withTimestamps();
     }
+
+    public function asistencias()
+    {
+        return $this->hasMany(Asistencia::class, 'alumno_id');
+    }
+
+    public function notas()
+    {
+        return $this->hasMany(Nota::class, 'alumno_id');
+    }
 }

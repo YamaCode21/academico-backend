@@ -25,4 +25,14 @@ class Curso extends Model
         return $this->belongsToMany(User::class, 'matriculas', 'curso_id', 'alumno_id')
             ->withTimestamps();
     }
+
+    public function asistencias()
+    {
+        return $this->hasMany(Asistencia::class);
+    }
+
+    public function notas()
+    {
+        return $this->hasMany(Nota::class);
+    }
 }

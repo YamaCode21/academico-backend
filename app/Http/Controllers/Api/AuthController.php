@@ -10,6 +10,17 @@ use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
+    // LISTAR USUARIOS
+    public function index()
+    {
+        $users = User::all();
+
+        return response()->json([
+            'status' => true,
+            'users' => $users
+        ], 200);
+    }
+    
     // REGISTRO
     public function register(Request $request) {
         $request->validate([
